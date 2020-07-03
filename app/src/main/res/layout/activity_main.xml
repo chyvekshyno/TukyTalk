@@ -3,6 +3,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -16,6 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
+        android:padding="8dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="16dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="16dp"
         android:rowCount="1">
 
         <Button
@@ -35,71 +41,126 @@
         android:background="?android:attr/listDivider"
         android:foreground="@android:color/background_dark" />
 
-    <GridLayout
-        android:id="@+id/ButtonsGrid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:columnCount="3"
-        android:orientation="horizontal"
-        android:rowCount="3">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <GridLayout
+            android:id="@+id/ButtonsGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:rowCount="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/menuButton1"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category1" />
+            <RelativeLayout>
 
-        <Button
-            android:id="@+id/menuButton2"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category2" />
+                <FrameLayout
+                    android:id="@+id/fl_category1_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foregroundGravity="bottom">
 
-        <Button
-            android:id="@+id/menuButton3"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category3" />
+                    <Button
+                        android:id="@+id/menuButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/round_menu_button"
+                        android:text="@string/bt_category1" />
+                </FrameLayout>
 
-        <Button
-            android:id="@+id/menuButton4"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category4" />
+                <FrameLayout
+                    android:id="@+id/fl_category1_ntf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/fl_category1_btn"
+                    android:layout_alignBottom="@id/fl_category1_btn"
+                    android:layout_alignParentEnd="false"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:foregroundGravity="top">
 
-        <Button
-            android:id="@+id/menuButton5"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category5" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom|end"
+                        android:padding="8dp"
+                        android:text="11"
+                        android:background="@drawable/category_ntf_circle"
+                        android:gravity="center"
+                        android:textSize="12sp" />
+                </FrameLayout>
 
-        <Button
-            android:id="@+id/menuButton6"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category6" />
+            </RelativeLayout>
 
-        <Button
-            android:id="@+id/menuButton7"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category7" />
+            <Button
+                android:id="@+id/menuButton2"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category2" />
 
-        <Button
-            android:id="@+id/menuButton8"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category8" />
+            <Button
+                android:id="@+id/menuButton3"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category3" />
 
-        <Button
-            android:id="@+id/menuButton9"
-            android:layout_margin="10dp"
-            android:background="@drawable/round_menu_button"
-            android:text="@string/bt_category9" />
+            <Button
+                android:id="@+id/menuButton4"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category4" />
 
-    </GridLayout>
+            <Button
+                android:id="@+id/menuButton5"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category5" />
+
+            <Button
+                android:id="@+id/menuButton6"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category6" />
+
+            <Button
+                android:id="@+id/menuButton7"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category7" />
+
+            <Button
+                android:id="@+id/menuButton8"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category8" />
+
+            <Button
+                android:id="@+id/menuButton9"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/round_menu_button"
+                android:text="@string/bt_category9" />
+
+        </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
 
