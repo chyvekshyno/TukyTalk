@@ -1,13 +1,6 @@
 <resources>
     <string name="app_name">tukYHelper</string>
     <string name="bt_burger">bBurger</string>
-    <string name="bt_category1">b1</string>
-    <string name="bt_category2">b2</string>
-    <string name="bt_category3">b3</string>
-    <string name="bt_category4">b4</string>
-    <string name="bt_category5">b5</string>
-    <string name="bt_category6">b6</string>
-    <string name="bt_category7">b7</string>
-    <string name="bt_category8">b8</string>
-    <string name="bt_category9">b9</string>
+    <string name="bt_essence_text">Cat</string>
+    <string name="tv_essence_ntf_num">11</string>
 </resources>
