@@ -38,17 +38,46 @@
         android:layout_height="2dp"
         android:background="?android:attr/listDivider"/>
 
-    <GridView android:id="@+id/gv_essence"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:columnWidth="80dp"
-        android:numColumns="auto_fit"
-        android:horizontalSpacing="8dp"
-        android:verticalSpacing="8dp"
-        android:padding="8dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:foregroundGravity="center">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="bottom">
 
-    </GridView>
+            <GridView
+                android:id="@+id/gv_essence"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:columnWidth="80dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:horizontalSpacing="8dp"
+                android:numColumns="auto_fit"
+                android:padding="8dp"
+                android:verticalSpacing="8dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:foregroundGravity="top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp">
+
+            <Button android:id="@+id/bt_add_essence"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bt_circle_essence"
+                android:layout_gravity="center"
+                android:text="+"
+                android:textSize="48sp"
+                android:textColor="@color/cardview_light_background"/>
+        </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>
