@@ -24,9 +24,7 @@ public class EssenceGridAdapter extends BaseAdapter
     }
 
     @Override
-    public int getCount() {
-        return _essences.size();
-    }
+    public int getCount() { return _essences.size(); }
 
     @Override
     public Object getItem(int position) {

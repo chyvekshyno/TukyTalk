@@ -41,12 +41,14 @@
     <GridView android:id="@+id/gv_essence"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:columnWidth="75dp"
+        android:columnWidth="80dp"
         android:numColumns="auto_fit"
         android:horizontalSpacing="8dp"
         android:verticalSpacing="8dp"
         android:padding="8dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:foregroundGravity="center"/>
+        android:foregroundGravity="center">
+
+    </GridView>
 </LinearLayout>

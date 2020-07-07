@@ -3,4 +3,5 @@
     <string name="bt_burger">bBurger</string>
     <string name="bt_essence_text">Cat</string>
     <string name="tv_essence_ntf_num">11</string>
+    <string name="tv_essence_name">Name</string>
 </resources>

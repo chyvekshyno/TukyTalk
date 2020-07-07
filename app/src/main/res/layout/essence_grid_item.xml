@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_width="wrap_content">
-    <FrameLayout
-        android:id="@+id/fl_essence_btn"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:foregroundGravity="bottom">
-        <ImageButton
-            android:id="@+id/bt_essence"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/fl_essence_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/bt_circle_essence"
-            android:src="@drawable/essence_ntf_circle" />
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/fl_essence_ntf"
+            android:foregroundGravity="bottom">
+
+            <ImageButton
+                android:id="@+id/bt_essence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/bt_circle_essence"
+                android:src="@drawable/essence_ntf_circle" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_essence_ntf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/fl_essence_btn"
+            android:layout_alignBottom="@id/fl_essence_btn"
+            android:layout_alignParentEnd="false"
+            android:foregroundGravity="top">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/essence_ntf_circle"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/tv_essence_ntf_num"
+                android:textSize="12sp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/fl_essence_btn"
-        android:layout_alignBottom="@id/fl_essence_btn"
-        android:layout_alignParentEnd="false"
-        android:foregroundGravity="top">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|end"
-            android:background="@drawable/essence_ntf_circle"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="@string/tv_essence_ntf_num"
-            android:textSize="12sp" />
-    </FrameLayout>
-</RelativeLayout>
+        android:layout_gravity="center"
+        android:text="@string/tv_essence_name" />
+</LinearLayout>
