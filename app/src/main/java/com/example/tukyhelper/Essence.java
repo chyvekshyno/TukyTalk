@@ -5,13 +5,13 @@ public class Essence {
     private EssenceType _type;
     private String _name;
     private String _iconpath;
-    private int _nftnum;
+    private int _ntfnum;
 
     public Essence(EssenceType type, String name, String iconpath, int nftnum) {
         _type = type;
         _name = name;
         _iconpath = iconpath;
-        _nftnum = nftnum;
+        _ntfnum = nftnum;
     }
 
     public EssenceType type(){
@@ -26,5 +26,5 @@ public class Essence {
         return _iconpath;
     }
 
-    public int NotificationCount() { return _nftnum;}
+    public int ntfCount() { return _ntfnum;}
 }
