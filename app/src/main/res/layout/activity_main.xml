@@ -3,6 +3,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -46,18 +47,18 @@
             android:layout_height="match_parent"
             android:foregroundGravity="bottom">
 
-            <GridView
-                android:id="@+id/gv_essence"
+            <GridView android:id="@+id/gv_essence"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:columnWidth="80dp"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:horizontalSpacing="8dp"
+                android:horizontalSpacing="40dp"
+                android:verticalSpacing="16dp"
                 android:numColumns="auto_fit"
-                android:padding="8dp"
-                android:verticalSpacing="8dp"/>
+                android:padding="16dp"
+                tools:listitem="@layout/essence_grid_item"/>
 
         </FrameLayout>
 
@@ -73,7 +74,7 @@
             <Button android:id="@+id/bt_add_essence"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/bt_circle_essence"
+                android:background="@drawable/essence_ntf_circle"
                 android:layout_gravity="center"
                 android:text="+"
                 android:textSize="48sp"

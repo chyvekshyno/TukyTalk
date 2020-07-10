@@ -1,4 +1,4 @@
-package com.example.tukyhelper;
+package com.example.tukyhelper.Model.EssenceRoom;
 
 import java.util.HashMap;
 import java.util.Map;

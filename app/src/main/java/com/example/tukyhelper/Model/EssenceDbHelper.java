@@ -1,4 +1,4 @@
-package com.example.tukyhelper;
+package com.example.tukyhelper.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.tukyhelper.Model.EssenceRoom.Essence;
+import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,10 +74,10 @@ public class EssenceDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_ESS_TYPE, es.type().getValue());
-        values.put(KEY_NAME, es.name());
-        values.put(KEY_ICON, es.icon());
-        values.put(KEY_NTF, es.ntfCount());
+        values.put(KEY_ESS_TYPE, es.getType());
+        values.put(KEY_NAME, es.getName());
+        values.put(KEY_ICON, es.getIcon());
+        values.put(KEY_NTF, es.getNftCount());
 
         return db.insert(TABLE_ESSENCE, null, values);
     }
@@ -93,7 +96,8 @@ public class EssenceDbHelper extends SQLiteOpenHelper {
         if (c != null)
             c.moveToFirst();
 
-        Essence es = new Essence(EssenceType.valueOf(c.getInt(c.getColumnIndex(KEY_ID)))
+        Essence es = new Essence(c.getInt(c.getColumnIndex(KEY_ID))
+                , c.getInt(c.getColumnIndex(KEY_ESS_TYPE))
                 , c.getString(c.getColumnIndex(KEY_NAME))
                 , c.getString(c.getColumnIndex(KEY_ICON))
                 , c.getInt(c.getColumnIndex(KEY_NTF)));
@@ -114,7 +118,8 @@ public class EssenceDbHelper extends SQLiteOpenHelper {
 
         if(c.moveToFirst())
             do{
-                Essence es = new Essence(EssenceType.valueOf(c.getInt(c.getColumnIndex(KEY_ID)))
+                Essence es = new Essence(c.getInt(c.getColumnIndex(KEY_ID))
+                        , c.getInt(c.getColumnIndex(KEY_ESS_TYPE))
                         , c.getString(c.getColumnIndex(KEY_NAME))
                         , c.getString(c.getColumnIndex(KEY_ICON))
                         , c.getInt(c.getColumnIndex(KEY_NTF)));
@@ -126,7 +131,7 @@ public class EssenceDbHelper extends SQLiteOpenHelper {
         return esList;
     }
 
-    public void delseteEssence(int esId){
+    public void deleteEssence(int esId){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_ESSENCE, KEY_ID + "= ?", new String[] { String.valueOf(esId)});
     }
