@@ -38,7 +38,6 @@
                 android:background="@drawable/essence_ntf_circle"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/tv_essence_ntf_num"
                 android:textSize="12sp" />
         </FrameLayout>
     </RelativeLayout>
@@ -46,6 +45,5 @@
     <TextView android:id="@+id/tv_essence_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/tv_essence_name" />
+        android:layout_gravity="center"/>
 </LinearLayout>
