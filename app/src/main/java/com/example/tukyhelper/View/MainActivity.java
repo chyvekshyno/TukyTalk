@@ -1,6 +1,7 @@
 package com.example.tukyhelper.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import android.widget.GridView;
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 import com.example.tukyhelper.R;
+import com.example.tukyhelper.ViewModel.EssenceViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //EssenceViewModel essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
 
         // Create tested Essences
         ArrayList<Essence> ess_list = new ArrayList<>();

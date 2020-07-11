@@ -4,4 +4,6 @@
     <string name="bt_essence_text">Cat</string>
     <string name="tv_essence_ntf_num">11</string>
     <string name="tv_essence_name">Name</string>
+    <string name="back">Back</string>
+    <string name="new_essence">New Essence</string>
 </resources>
