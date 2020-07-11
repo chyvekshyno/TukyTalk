@@ -33,8 +33,7 @@
             android:text="@string/bt_burger" />
     </GridLayout>
 
-    <View
-        android:id="@+id/head_divider"
+    <View android:id="@+id/head_divider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="?android:attr/listDivider"/>
@@ -71,14 +70,15 @@
             android:layout_marginBottom="24dp"
             android:layout_marginEnd="24dp">
 
-            <Button android:id="@+id/bt_add_essence"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/essence_ntf_circle"
-                android:layout_gravity="center"
-                android:text="+"
-                android:textSize="48sp"
-                android:textColor="@color/cardview_light_background"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_essence_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_baseline_add_24"
+                app:backgroundTint="#FF9100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </FrameLayout>
     </RelativeLayout>
 </LinearLayout>
