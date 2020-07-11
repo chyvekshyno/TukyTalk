@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ArrayList<Essence> ess_list = new ArrayList<>();
-        ess_list.add(new Essence(1, EssenceType.Home, "Home", "_", 0));
-        ess_list.add(new Essence(2, EssenceType.Home, "Home2", "_", 0));
-        ess_list.add(new Essence(4, EssenceType.Home, "Home3", "_", 0));
+        ess_list.add(new Essence(1, 1, "Home", "_", 0));
+        ess_list.add(new Essence(2, 1, "Home2", "_", 0));
+        ess_list.add(new Essence(4, 1, "Home3", "_", 0));
 
         GridView essence_grid = (GridView)findViewById(R.id.gv_essence);
         EssenceGridAdapter es_grid_adapter = new EssenceGridAdapter(getApplicationContext(), ess_list);

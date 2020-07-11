@@ -1,5 +1,6 @@
 package com.example.tukyhelper.Model.EssenceRoom;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,17 +13,17 @@ import java.util.List;
 public interface EssenceDao {
 
     @Query("SELECT * FROM Essence")
-    List<Essence> getAll();
+    LiveData<List<Essence>> getAll();
 
     @Query("SELECT * FROM Essence WHERE id = :id")
-    Essence getById(int id);
+    LiveData<Essence> getById(int id);
 
     @Insert
-    void insert(Essence es);
+    void insert(Essence ess);
 
     @Update
-    void update(Essence es);
+    void update(Essence ess);
 
     @Delete
-    void delete(Essence es);
+    void delete(Essence ess);
 }
