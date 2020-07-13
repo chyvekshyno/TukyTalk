@@ -11,12 +11,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
-import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 import com.example.tukyhelper.R;
+import com.example.tukyhelper.View.Adapters.EssenceRVAdapter;
 import com.example.tukyhelper.ViewModel.EssenceViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
