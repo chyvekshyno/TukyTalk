@@ -12,10 +12,10 @@ import java.util.List;
 @Dao
 public interface EssenceDao {
 
-    @Query("SELECT * FROM Essence")
+    @Query("SELECT * FROM essence")
     LiveData<List<Essence>> getAll();
 
-    @Query("SELECT * FROM Essence WHERE id = :id")
+    @Query("SELECT * FROM essence WHERE id = :id")
     LiveData<Essence> getById(int id);
 
     @Insert

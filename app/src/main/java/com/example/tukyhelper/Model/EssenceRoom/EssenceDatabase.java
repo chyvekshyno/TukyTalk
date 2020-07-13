@@ -6,10 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = Essence.class, version = 1)
+@Database(entities = {Essence.class, EssenceType.class}, version = 1)
 public abstract class EssenceDatabase extends RoomDatabase {
 
     public abstract EssenceDao essenceDao();
+    public abstract EssenceTypeDao essenceTypeDao();
     private static EssenceDatabase instance;
 
     public static synchronized EssenceDatabase getDatabase(Context context) {
