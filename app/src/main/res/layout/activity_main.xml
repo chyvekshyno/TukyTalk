@@ -12,16 +12,11 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" >
 
-    <GridLayout
-        android:id="@+id/headLayout"
+    <GridLayout android:id="@+id/headLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:padding="8dp"
-        android:paddingLeft="8dp"
-        android:paddingTop="16dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="16dp"
         android:rowCount="1">
 
         <Button
@@ -29,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="3"
-            android:layout_margin="10dp"
+            android:padding="8dp"
             android:text="@string/bt_burger" />
     </GridLayout>
 

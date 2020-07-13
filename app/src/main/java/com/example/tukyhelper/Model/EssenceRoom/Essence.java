@@ -1,11 +1,12 @@
 package com.example.tukyhelper.Model.EssenceRoom;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity()
+@Entity(tableName = "essence")
 public class Essence {
     @PrimaryKey(autoGenerate = true)
     private final int id;
@@ -13,13 +14,13 @@ public class Essence {
     @ColumnInfo(name = "TYPE")
     private int type;
 
-    @ColumnInfo(name = "NAME")
-    private String name;
+    @ColumnInfo(name = "NAME") @NonNull
+    private String name = "Essence";
 
-    @ColumnInfo(name = "ICON")
-    private String icon;
+    @ColumnInfo(name = "ICON") @NonNull
+    private String icon = "essence_icon";
 
-    @ColumnInfo(name = "NTF")
+    @ColumnInfo(name = "NTF", defaultValue = "2")
     private int nftCount;
 
     @Ignore
@@ -39,8 +40,9 @@ public class Essence {
 
     public int getType() { return type;  }
 
+    @NonNull
     public String getName() { return name; }
-
+    @NonNull
     public String getIcon() { return icon; }
 
     public int getNftCount() { return nftCount;}
