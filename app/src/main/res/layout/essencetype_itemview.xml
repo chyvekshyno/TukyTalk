@@ -5,11 +5,12 @@
     android:layout_gravity="center"
     android:orientation="vertical">
 
-    <ImageButton android:id="@+id/ibt_esstype"
+    <RadioButton android:id="@+id/rbt_esstype"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
-        android:contentDescription="Essence" />
+        android:background="@drawable/essencetype_selector"
+        android:button="@drawable/ic_baseline_android_64" />
 
     <TextView
         android:id="@+id/tv_esstype_name"

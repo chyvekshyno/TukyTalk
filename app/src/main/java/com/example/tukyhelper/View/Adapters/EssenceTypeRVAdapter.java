@@ -3,7 +3,7 @@ package com.example.tukyhelper.View.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +17,10 @@ import java.util.List;
 
 public class EssenceTypeRVAdapter extends RecyclerView.Adapter<EssenceTypeRVAdapter.EssenceTypeHolder> {
 
+    private int lastSelectedPosition = -1;
+
     private List<EssenceType> types = new ArrayList<>();
     private List<String> typeIcons = new ArrayList<>();
-
     public void setData(List<EssenceType> types){
         this.types = types;
         //typeIcons = icons;
@@ -37,24 +38,34 @@ public class EssenceTypeRVAdapter extends RecyclerView.Adapter<EssenceTypeRVAdap
     public void onBindViewHolder(@NonNull EssenceTypeHolder holder, int position) {
         holder.tv_name.setText(types.get(position).getTypeName());
         //holder.tv_name.setText(typeNames.get(position));
+        //holder.rbt_icon.setButtonDrawable(R.drawable.ic_baseline_add_24);
+        holder.rbt.setChecked(lastSelectedPosition == position);
     }
-
-
 
     @Override
     public int getItemCount() {
         return types.size();
     }
 
-    static class EssenceTypeHolder extends RecyclerView.ViewHolder{
-        private ImageButton ibt_icon;
+    class EssenceTypeHolder extends RecyclerView.ViewHolder{
+
+        private RadioButton rbt;
         private TextView tv_name;
 
         public EssenceTypeHolder(@NonNull View itemView) {
             super(itemView);
 
-            ibt_icon = (ImageButton) itemView.findViewById(R.id.ibt_esstype);
+            rbt = (RadioButton) itemView.findViewById(R.id.rbt_esstype);
             tv_name = (TextView) itemView.findViewById(R.id.tv_esstype_name);
+
+            rbt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    lastSelectedPosition = getAdapterPosition();
+                    notifyDataSetChanged();
+                }
+            });
         }
+
     };
 }
