@@ -16,6 +16,9 @@ import java.util.List;
 
 public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.EssenceHolder> {
 
+    private List<Essence> essList = new ArrayList<>();
+
+
     static class EssenceHolder extends RecyclerView.ViewHolder{
         private TextView name;
         //private ImageButton icon_btn;
@@ -29,8 +32,6 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
             ntfCount = (TextView) itemView.findViewById(R.id.tv_essence_ntfcount);
         }
     }
-
-    private List<Essence> essList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -52,7 +53,7 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         return essList.size();
     }
 
-    public void setEssences(List<Essence> essList) {
+    public void setData(List<Essence> essList) {
         this.essList = essList;
         notifyDataSetChanged();
     }

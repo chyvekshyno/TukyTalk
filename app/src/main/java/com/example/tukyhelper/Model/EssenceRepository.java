@@ -47,10 +47,6 @@ public class EssenceRepository {
     }
 
     //  EssenceType API
-    public void update(EssenceType esstype){
-        essTypeDao.update(esstype);
-    }
-
     public LiveData<List<EssenceType>> getAllTypes(){
         return essTypeData;
     }

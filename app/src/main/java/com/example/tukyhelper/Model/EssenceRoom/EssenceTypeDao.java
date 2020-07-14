@@ -15,7 +15,4 @@ public interface EssenceTypeDao {
 
     @Query("SELECT * FROM essence_type WHERE id = :id")
     LiveData<EssenceType> getById(int id);
-
-    @Update
-    void update(EssenceType esstype);
 }

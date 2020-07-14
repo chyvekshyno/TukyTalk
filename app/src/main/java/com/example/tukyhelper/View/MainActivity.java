@@ -1,5 +1,6 @@
 package com.example.tukyhelper.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,22 +22,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     RecyclerView rv_essence_list;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Remove header
         try { this.getSupportActionBar().hide(); }
         catch (NullPointerException e){}
 
-
         setContentView(R.layout.activity_main);
-
-
-        // Create tested Essences
-//        ArrayList<Essence> ess_list = new ArrayList<>();
-//        ess_list.add(new Essence(1, 1, "Home  ", "_", 0));
-//        ess_list.add(new Essence(2, 1, "Car", "_", 0));
-//        ess_list.add(new Essence(4, 1, "Car(2)", "_", 0));
 
         // Set adapter to RecycleView
         rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
@@ -48,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         essVM.getAllEssences().observe(this, new Observer<List<Essence>>(){
             @Override
             public void onChanged(List<Essence> essences) {
-                adapter.setEssences(essences);
+                adapter.setData(essences);
             }
         });
 
@@ -58,8 +53,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EssenceAddActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
     }
 }

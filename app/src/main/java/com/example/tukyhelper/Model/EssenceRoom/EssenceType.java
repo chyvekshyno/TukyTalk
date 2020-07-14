@@ -12,16 +12,16 @@ public class EssenceType {
     @PrimaryKey private int id;
 
     @ColumnInfo(name = "TYPENAME", defaultValue = "Essence") @NonNull
-    private String type_name = "Essence";
+    private String typeName = "Essence";
 
     @Ignore
     public EssenceType(int id) {
         this.id = id;
     }
 
-    public EssenceType(int id, @NonNull String type_name) {
+    public EssenceType(int id, @NonNull String typeName) {
         this.id = id;
-        this.type_name = type_name;
+        this.typeName = typeName;
     }
 
     public int getId() {
@@ -30,10 +30,10 @@ public class EssenceType {
 
     @NonNull
     public String getTypeName() {
-        return type_name;
+        return typeName;
     }
 
     public void setTypeName(@NonNull String type_name) {
-        this.type_name = type_name;
+        this.typeName = type_name;
     }
 }
