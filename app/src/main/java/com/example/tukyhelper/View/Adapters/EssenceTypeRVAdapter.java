@@ -17,14 +17,19 @@ import java.util.List;
 
 public class EssenceTypeRVAdapter extends RecyclerView.Adapter<EssenceTypeRVAdapter.EssenceTypeHolder> {
 
-    private int lastSelectedPosition = -1;
+    private int lastSelectedId = -1;
 
     private List<EssenceType> types = new ArrayList<>();
+
     private List<String> typeIcons = new ArrayList<>();
     public void setData(List<EssenceType> types){
         this.types = types;
         //typeIcons = icons;
         notifyDataSetChanged();
+    }
+
+    public int getLastSelectedId() {
+        return lastSelectedId;
     }
 
     @NonNull
@@ -39,7 +44,7 @@ public class EssenceTypeRVAdapter extends RecyclerView.Adapter<EssenceTypeRVAdap
         holder.tv_name.setText(types.get(position).getTypeName());
         //holder.tv_name.setText(typeNames.get(position));
         //holder.rbt_icon.setButtonDrawable(R.drawable.ic_baseline_add_24);
-        holder.rbt.setChecked(lastSelectedPosition == position);
+        holder.rbt.setChecked(lastSelectedId == types.get(position).getId());
     }
 
     @Override
@@ -61,7 +66,7 @@ public class EssenceTypeRVAdapter extends RecyclerView.Adapter<EssenceTypeRVAdap
             rbt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    lastSelectedPosition = getAdapterPosition();
+                    lastSelectedId = types.get(getAdapterPosition()).getId();
                     notifyDataSetChanged();
                 }
             });

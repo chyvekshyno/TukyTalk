@@ -4,24 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <LinearLayout android:id="@+id/ll_main"
+
+    <LinearLayout
+        android:id="@+id/ll_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:orientation="vertical">
 
-        <RelativeLayout android:id="@+id/ll_addess_header"
-            android:orientation="horizontal"
+        <RelativeLayout
+            android:id="@+id/ll_addess_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
-            <FrameLayout android:foregroundGravity="top"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:foregroundGravity="top">
 
                 <ImageButton
                     android:id="@+id/imbtn_addess_back"
@@ -33,10 +37,11 @@
                     android:src="@drawable/ic_baseline_arrow_back_24" />
             </FrameLayout>
 
-            <FrameLayout android:foregroundGravity="bottom"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:foregroundGravity="bottom">
 
                 <TextView
                     android:id="@+id/tv_addess_title"
@@ -53,13 +58,30 @@
             android:id="@+id/rv_esstype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            tools:listitem="@layout/essencetype_itemview" />
+            android:layout_gravity="center_horizontal" />
 
+
+            <ImageView android:id="@+id/iv_addess_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_baseline_android_64" />
+
+            <EditText
+                android:id="@+id/et_addess_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:hint="Enter name"
+                android:maxLines="1"
+                android:lines="1"
+                android:inputType="text"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/bt_essence_create"
+    <Button android:id="@+id/bt_essence_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/ll_main"

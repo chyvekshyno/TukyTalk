@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "essence")
 public class Essence {
     @PrimaryKey(autoGenerate = true)
-    private final int id;
+    private int id;
 
     @ColumnInfo(name = "TYPE")
     private int type;
@@ -24,8 +24,8 @@ public class Essence {
     private int nftCount;
 
     @Ignore
-    public Essence(int id) {
-        this.id = id;
+    public Essence(int type) {
+        this.type = type;
     }
 
     public Essence(int id, int type, String name, String icon, int nftCount) {

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
@@ -20,8 +21,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView rv_essence_list;
 
+    EssenceViewModel essVM;
+    final int REQUEST_CODE_CREATE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Set adapter to RecycleView
-        rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
+        RecyclerView  rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
         rv_essence_list.setLayoutManager(new GridLayoutManager(this, 3));
         final EssenceRVAdapter adapter = new EssenceRVAdapter();
         rv_essence_list.setAdapter(adapter);
 
-        EssenceViewModel essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
+        essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
         essVM.getAllEssences().observe(this, new Observer<List<Essence>>(){
             @Override
             public void onChanged(List<Essence> essences) {
@@ -53,16 +55,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EssenceAddActivity.class);
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, REQUEST_CODE_CREATE);
             }
         });
 
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK){
 
-
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Essence essence = new Essence(data.getIntExtra("type", 1));
+                    essence.setName(data.getStringExtra("name"));
+                    essence.setIcon("iconpath");
+                    essence.setNftCount(0);
+                    essVM.insert(essence);
+                }
+            });
+            t.start();
+        }
     }
 }
