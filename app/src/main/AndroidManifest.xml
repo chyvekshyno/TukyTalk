@@ -19,6 +19,10 @@
         <activity android:name=".View.EssenceAddActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+
+        <activity android:name=".View.EssenceActivity">
+
+        </activity>
     </application>
 
 </manifest>
