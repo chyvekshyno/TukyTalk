@@ -2,9 +2,11 @@
   <dictionary name="tukY">
     <words>
       <w>addess</w>
+      <w>essenceview</w>
       <w>esstype</w>
       <w>iconpath</w>
       <w>imbtn</w>
+      <w>ntfcount</w>
     </words>
   </dictionary>
 </component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape
+        android:shape="ring"
+        android:innerRadius="36dp"
+        android:thickness="6dp"
+        android:useLevel="false">
+        <size
+            android:height="84dp"
+            android:width="84dp" />
+        <solid android:color="#8BC34A"/>
+    </shape>
+</rotate>

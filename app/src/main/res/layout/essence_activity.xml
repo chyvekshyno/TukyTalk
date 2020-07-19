@@ -2,26 +2,133 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rl_essence_header"
+                <!-- HEADER -->
+    <FrameLayout android:id="@+id/fl_essence_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <RelativeLayout android:id="@+id/rl_essence_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/ibt_essence_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_baseline_home_48" />
 
-        <ImageButton
-            android:id="@+id/ibt_essence_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/ic_baseline_home_48" />
+            <ImageButton
+                android:id="@+id/ibt_essence_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_baseline_settings_48" />
+        </RelativeLayout>
+    </FrameLayout>
 
-        <ImageButton
-            android:id="@+id/ibt_essence_settings"
+                <!-- ESSENCE ICON -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_baseline_settings_48" />
-    </RelativeLayout>
+            android:layout_height="wrap_content">
+
+            <FrameLayout android:id="@+id/fl_essence_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout android:id="@+id/rl_essence_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout android:id="@+id/fl_essence_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:foregroundGravity="bottom">
+
+                <ImageButton
+                    android:id="@+id/ibt_essence_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bt_circle_essence"
+                    android:src="@drawable/ic_baseline_directions_car_24" />
+            </FrameLayout>
+
+                    <FrameLayout android:id="@+id/fl_essence_completeness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:foregroundGravity="top">
+
+                <ProgressBar
+                    android:id="@+id/pb_essence_completeness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:indeterminateDrawable="@drawable/essence_progressbar_circle"
+                    android:maxWidth="84dp"
+                    android:maxHeight="84dp"
+                    android:progress="20" />
+            </FrameLayout>
+
+                    <FrameLayout android:id="@+id/fl_essence_ntfcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/fl_essence_icon"
+                android:layout_alignEnd="@id/fl_essence_icon">
+
+                <TextView
+                    android:id="@+id/tv_essence_ntfcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/essence_ntf_circle"
+                    android:gravity="center"
+                    android:text="11" />
+            </FrameLayout>
+                </RelativeLayout>
+            </FrameLayout>
+
+            <FrameLayout android:id="@+id/fl_essence_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fl_essence_circle"
+                android:layout_centerHorizontal="true">
+
+                <TextView android:id="@+id/tv_essence_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Essence Name"/>
+            </FrameLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+                <!-- STATUS BAR -->
+    <FrameLayout android:id="@+id/fl_essence_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_essence_header">
+        <RelativeLayout android:id="@+id/rl_essence_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton android:id="@+id/ibt_essence_talk_smile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+
+
+
+        </RelativeLayout>
+    </FrameLayout>
 
 </RelativeLayout>

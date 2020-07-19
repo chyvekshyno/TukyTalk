@@ -27,9 +27,9 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         public EssenceHolder(@NonNull View itemView) {
             super(itemView);
 
-            name = (TextView) itemView.findViewById(R.id.tv_essence_name);
+            name = (TextView) itemView.findViewById(R.id.tv_essenceview_name);
             //icon_btn = itemView.findViewById(R.id.btn_essence_icon);
-            ntfCount = (TextView) itemView.findViewById(R.id.tv_essence_ntfcount);
+            ntfCount = (TextView) itemView.findViewById(R.id.tv_essenceview_ntfcount);
         }
     }
 
