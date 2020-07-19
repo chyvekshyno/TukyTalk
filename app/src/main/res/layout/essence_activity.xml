@@ -118,17 +118,37 @@
         <RelativeLayout android:id="@+id/rl_essence_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <FrameLayout
+            <FrameLayout android:id="@+id/fl_essence_smile"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageButton android:id="@+id/ibt_essence_talk_smile"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+                <ImageButton android:id="@+id/ibt_essence_smile"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_baseline_face"/>
             </FrameLayout>
 
-
-
+            <FrameLayout android:id="@+id/fl_essence_delay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+                <ImageButton android:id="@+id/ibt_essence_delay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_baseline_time"/>
+            </FrameLayout>
         </RelativeLayout>
     </FrameLayout>
 
+    <FrameLayout android:id="@+id/fl_essence_messages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
 </RelativeLayout>
