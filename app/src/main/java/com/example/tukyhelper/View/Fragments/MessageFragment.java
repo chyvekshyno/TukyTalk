@@ -8,10 +8,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MessageFragment extends Fragment {
+
+    RecyclerView rv_messages;
+    List<String> messages = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,5 +34,11 @@ public class MessageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+    }
+
+    private void setMessages(List<String> messages){
+        this.messages = messages;
     }
 }
