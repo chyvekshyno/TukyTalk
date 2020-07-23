@@ -19,11 +19,11 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
 
     //region variables
     private List<Essence> data = new ArrayList<>();
-    private OnEssenceClickListener listener;
+    private View.OnClickListener listener;
 
     //endregion
 
-    //region Overrided methods
+    //region Override extended methods
     @NonNull
     @Override
     public EssenceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,22 +38,13 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         //holder.ibt.setImageBitmap(BitmapFactory
         //       .decodeFile(essList.get(position).getIcon()));
 
-        holder.ibt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null && position != RecyclerView.NO_POSITION) {
-                    listener.OnClick(v, position);
-                }
-            }
-        });
+        holder.ibt.setOnClickListener(listener);
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
-
-
 
     //endregion
 
@@ -63,7 +54,7 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         notifyDataSetChanged();
     }
 
-    public void setOnEssenceClickListener(OnEssenceClickListener listener){
+    public void setOnEssenceClickListener(View.OnClickListener listener){
         this.listener = listener;
     }
 
@@ -82,10 +73,6 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
             ibt = (ImageButton) itemView.findViewById(R.id.ibt_essenceview_icon);
             ntfCount = (TextView) itemView.findViewById(R.id.tv_essenceview_ntfcount);
         }
-    }
-
-    public interface OnEssenceClickListener{
-        void OnClick(View v, int position);
     }
     //endregion
 }

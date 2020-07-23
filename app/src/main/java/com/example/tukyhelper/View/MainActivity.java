@@ -45,10 +45,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        adapter.setOnEssenceClickListener(new EssenceRVAdapter.OnEssenceClickListener() {
+        adapter.setOnEssenceClickListener(new View.OnClickListener() {
             @Override
-            public void OnClick(View v, int position) {
-                Log.d("OnEssenceClick", "Was clicked");
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, EssenceActivity.class);
                 startActivity(intent);
             }
