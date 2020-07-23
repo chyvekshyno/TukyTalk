@@ -181,23 +181,7 @@
                     android:id="@+id/tabl_essence_msg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#B78BC34A">
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_essence_msg_adv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ADV"/>
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_essence_msg_imp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Important"/>
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_essence_msg_prop"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Propositions"/>
-                </com.google.android.material.tabs.TabLayout>
+                    android:background="#B78BC34A"/>
             </FrameLayout>
         </RelativeLayout>
     </FrameLayout>

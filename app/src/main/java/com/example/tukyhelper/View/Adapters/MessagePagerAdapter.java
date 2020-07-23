@@ -1,6 +1,7 @@
 package com.example.tukyhelper.View.Adapters;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -26,6 +27,12 @@ public class MessagePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return PAGE_COUNT;
+        return MessageFragment.TITLES.length;
     }   //  I don't like it
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return MessageFragment.TITLES[position];
+    }
 }

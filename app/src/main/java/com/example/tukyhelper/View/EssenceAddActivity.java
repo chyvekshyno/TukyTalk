@@ -34,9 +34,6 @@ public class EssenceAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        try { this.getSupportActionBar().hide(); }
-        catch (NullPointerException e){}
-
         setContentView(R.layout.activity_essence_add);
 
         iv_icon = (ImageView) findViewById(R.id.iv_addess_icon);

@@ -21,7 +21,7 @@ import java.util.List;
 public class MessageFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
-
+    public static final String[] TITLES = {"ADV", "IMPORTANT", "PROP"};
     int cpage;
 
     RecyclerView rv_messages;
@@ -36,7 +36,7 @@ public class MessageFragment extends Fragment {
 
         MessageFragment messageFragment = new MessageFragment();
         messageFragment.setArguments(args);
-        return null;
+        return messageFragment;
     }
 
     @Override
