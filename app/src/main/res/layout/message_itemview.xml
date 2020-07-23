@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView android:id="@+id/tv_msg_text"
-        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="4dp">
+
+    <TextView
+        android:id="@+id/tv_msg_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textAlignment="center"
-        android:text="SomeMessage"/>
-</FrameLayout>
+        android:layout_marginLeft="4dp"
+        android:padding="4dp"
+        android:text="Title"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <TextView android:id="@+id/tv_msg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textSize="16sp"
+        android:text="Lorem Ipsum"/>
+</LinearLayout>

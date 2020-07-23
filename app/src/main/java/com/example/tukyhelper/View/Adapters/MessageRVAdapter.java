@@ -34,6 +34,10 @@ public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.Mess
         return messages.size();
     }
 
+    public void setData(List<String> messages){
+        this.messages = messages;
+    }
+
     static class MessageHolder extends RecyclerView.ViewHolder{
 
         TextView tv_text;

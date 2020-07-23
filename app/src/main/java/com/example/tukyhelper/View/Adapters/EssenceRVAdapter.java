@@ -3,6 +3,7 @@ package com.example.tukyhelper.View.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,23 +17,13 @@ import java.util.List;
 
 public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.EssenceHolder> {
 
-    private List<Essence> essList = new ArrayList<>();
+    //region variables
+    private List<Essence> data = new ArrayList<>();
+    private OnEssenceClickListener listener;
 
+    //endregion
 
-    static class EssenceHolder extends RecyclerView.ViewHolder{
-        private TextView name;
-        //private ImageButton icon_btn;
-        private TextView ntfCount;
-
-        public EssenceHolder(@NonNull View itemView) {
-            super(itemView);
-
-            name = (TextView) itemView.findViewById(R.id.tv_essenceview_name);
-            //icon_btn = itemView.findViewById(R.id.btn_essence_icon);
-            ntfCount = (TextView) itemView.findViewById(R.id.tv_essenceview_ntfcount);
-        }
-    }
-
+    //region Overrided methods
     @NonNull
     @Override
     public EssenceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,20 +32,60 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EssenceHolder holder, int position) {
-        holder.name.setText(essList.get(position).getName());
-        holder.ntfCount.setText(String.valueOf(essList.get(position).getNftCount()));
-        //holder.icon_btn.setImageBitmap(BitmapFactory
+    public void onBindViewHolder(@NonNull EssenceHolder holder, final int position) {
+        holder.name.setText(data.get(position).getName());
+        holder.ntfCount.setText(String.valueOf(data.get(position).getNftCount()));
+        //holder.ibt.setImageBitmap(BitmapFactory
         //       .decodeFile(essList.get(position).getIcon()));
+
+        holder.ibt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null && position != RecyclerView.NO_POSITION) {
+                    listener.OnClick(v, position);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return essList.size();
+        return data.size();
     }
 
+
+
+    //endregion
+
+    //region Methods
     public void setData(List<Essence> essList) {
-        this.essList = essList;
+        this.data = essList;
         notifyDataSetChanged();
     }
+
+    public void setOnEssenceClickListener(OnEssenceClickListener listener){
+        this.listener = listener;
+    }
+
+    //endregion
+
+    //region Inner classes and interfaces
+    class EssenceHolder extends RecyclerView.ViewHolder{
+        private TextView name;
+        private ImageButton ibt;
+        private TextView ntfCount;
+
+        public EssenceHolder(@NonNull View itemView) {
+            super(itemView);
+
+            name = (TextView) itemView.findViewById(R.id.tv_essenceview_name);
+            ibt = (ImageButton) itemView.findViewById(R.id.ibt_essenceview_icon);
+            ntfCount = (TextView) itemView.findViewById(R.id.tv_essenceview_ntfcount);
+        }
+    }
+
+    public interface OnEssenceClickListener{
+        void OnClick(View v, int position);
+    }
+    //endregion
 }

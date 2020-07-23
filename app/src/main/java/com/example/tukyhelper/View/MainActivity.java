@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
 import com.example.tukyhelper.R;
@@ -35,17 +36,26 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // Set adapter to RecycleView
+        essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
+
         RecyclerView  rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
         rv_essence_list.setLayoutManager(new GridLayoutManager(this, 3));
         final EssenceRVAdapter adapter = new EssenceRVAdapter();
         rv_essence_list.setAdapter(adapter);
 
-        essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
         essVM.getAllEssences().observe(this, new Observer<List<Essence>>(){
             @Override
             public void onChanged(List<Essence> essences) {
                 adapter.setData(essences);
+            }
+        });
+
+        adapter.setOnEssenceClickListener(new EssenceRVAdapter.OnEssenceClickListener() {
+            @Override
+            public void OnClick(View v, int position) {
+                Log.d("OnEssenceClick", "Was clicked");
+                Intent intent = new Intent(MainActivity.this, EssenceActivity.class);
+                startActivity(intent);
             }
         });
 

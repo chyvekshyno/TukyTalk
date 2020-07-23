@@ -17,6 +17,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_margin="4dp"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_baseline_home_48" />
 
             <ImageButton
@@ -24,6 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_margin="4dp"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_baseline_settings_48" />
         </RelativeLayout>
     </FrameLayout>
@@ -146,6 +150,7 @@
         </RelativeLayout>
     </FrameLayout>
 
+                <!-- MESSAGES -->
     <FrameLayout android:id="@+id/fl_essence_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,9 +166,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_above="@id/fl_essence_msg_tabs">
                 <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager_essence_msg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#FFEB3B"/>
+                    android:background="#32FFEB3B"/>
             </FrameLayout>
 
             <FrameLayout android:id="@+id/fl_essence_msg_tabs"
@@ -175,27 +181,26 @@
                     android:id="@+id/tabl_essence_msg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#8BC34A">
+                    android:background="#B78BC34A">
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/tab_essence_msg_adv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ADV"/>
                     <com.google.android.material.tabs.TabItem
                         android:id="@+id/tab_essence_msg_imp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Important"/>
                     <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_essence_msg_simple"
+                        android:id="@+id/tab_essence_msg_prop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Simple"/>
-                    <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_essence_msg_adv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ADV"/>
+                        android:text="Propositions"/>
                 </com.google.android.material.tabs.TabLayout>
             </FrameLayout>
         </RelativeLayout>
     </FrameLayout>
 </RelativeLayout>
-    <!-- MESSAGES -->
 
 
