@@ -16,7 +16,7 @@ public abstract class EssenceDatabase extends RoomDatabase {
     public static synchronized EssenceDatabase getDatabase(Context context) {
         if (instance == null){
             instance = Room.databaseBuilder(context, EssenceDatabase.class, "Essence.db")
-                    .createFromAsset("database/essence.db")
+                    .createFromAsset("database/Essence.db")
                     .build();
         }
         return instance;

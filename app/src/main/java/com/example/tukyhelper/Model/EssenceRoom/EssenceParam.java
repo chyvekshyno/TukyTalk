@@ -1,86 +1,88 @@
 package com.example.tukyhelper.Model.EssenceRoom;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "ESSENCE_PARAMS",
+        foreignKeys = @ForeignKey(entity = EssenceParamWord.class,
+                parentColumns = "ID",
+                childColumns = "PARAM_ID"))
 public class EssenceParam {
 
-    String paramName = "Parameter";
-    String value = "";
-    Boolean isNumber;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "ID")
+    int id;
+
+    @ColumnInfo(name = "ESSENCE_ID")
+    int essenceId;
+
+    @ColumnInfo(name = "PARAM_ID")
+    int paramId;
+
+    @ColumnInfo(name = "VALUE")
+    String value;
 
     //region Constructors
-    public EssenceParam(String paramName, String value, Boolean isNumeric) {
-        this.isNumber = isNumeric;
 
-        try {
-            ValueTypeCheck(value);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
-        this.paramName = paramName;
+    public EssenceParam(int id, int essenceId, int paramId, String value) {
+        this.id = id;
+        this.essenceId = essenceId;
+        this.paramId = paramId;
         this.value = value;
     }
 
-    public EssenceParam(String paramName, double value) {
-        this(paramName, String.valueOf(value), true);
-    }
-
-    public EssenceParam(String paramName, Boolean isNumeric) {
-        this.paramName = paramName;
-        this.isNumber = isNumeric;
+    @Ignore
+    public EssenceParam(int id) {
+        this.id = id;
     }
 
     //endregion
 
     //region Accessors
+    //region Getters
+    public int getId() {
+        return id;
+    }
 
-    public String getParamName() {
-        return paramName;
+    public int getEssenceId() {
+        return essenceId;
+    }
+
+    public int getParamId() {
+        return paramId;
     }
 
     public String getValue() {
         return value;
     }
+    //endregion
 
-    public Boolean getNumeric() {
-        return isNumber;
+    //region Setters
+    public void setEssenceId(int essenceId) {
+        this.essenceId = essenceId;
     }
 
-    public void setParamName(String paramName) {
-        this.paramName = paramName;
+    public void setParamId(int paramId) {
+        this.paramId = paramId;
     }
 
     public void setValue(String value) {
-        try {
-            ValueTypeCheck(value);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
         this.value = value;
     }
-
-    public void setValue(double value) throws NumberFormatException{
-        if (!isNumber){
-            throw new NumberFormatException("value of parameter [ "
-                    + paramName + " ] is NOT numeric");
-        }
-        setValue(String.valueOf(value));
-    }
-
+    //endregion
     //endregion
 
-    void ValueTypeCheck(String value) throws NumberFormatException, NullPointerException{
-        if (value == null) {
-            throw new NullPointerException("value of parameter [ "
-                    + paramName + " ] is null");
-        }
-        if (isNumber && !value.matches("-?\\d+(\\.\\d+)?")) {
-            throw new NumberFormatException("value of parameter [ "
-                    + paramName + " ] is Numeric but contains non number symbols");
-        }
-    }
+//    void ValueTypeCheck(String value) throws NumberFormatException, NullPointerException{
+//        if (value == null) {
+//            throw new NullPointerException("value of parameter [ "
+//                    + paramName + " ] is null");
+//        }
+//        if (isNumeric && !value.matches("-?\\d+(\\.\\d+)?")) {
+//            throw new NumberFormatException("value of parameter [ "
+//                    + paramName + " ] is Numeric but contains non number symbols");
+//        }
+//    }
 }
