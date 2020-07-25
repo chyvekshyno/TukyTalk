@@ -1,4 +1,4 @@
-package com.example.tukyhelper.View;
+package com.example.tukyhelper.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;

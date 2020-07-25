@@ -1,4 +1,4 @@
-package com.example.tukyhelper.View;
+package com.example.tukyhelper.View.Activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
 import com.example.tukyhelper.R;

@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.tukyhelper.View.EssenceActivity;
 import com.example.tukyhelper.View.Fragments.MessageFragment;
-
-import java.util.ArrayList;
 
 public class MessagePagerAdapter extends FragmentPagerAdapter {
 
