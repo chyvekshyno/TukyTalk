@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.Model.ParamRoom.EssenceParam;
@@ -16,7 +15,6 @@ import com.example.tukyhelper.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class ParamRVAdapter extends RecyclerView.Adapter<ParamRVAdapter.ParamHolder> {
 

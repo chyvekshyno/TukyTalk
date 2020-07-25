@@ -13,7 +13,7 @@ public class EssenceParamWord {
     int id;
 
     @ColumnInfo(name = "ESSENCE_TYPE_ID")
-    String essenceTypeId;
+    int essenceTypeId;
 
     @ColumnInfo(name = "PARAM_NAME")
     String paramName;
@@ -31,7 +31,7 @@ public class EssenceParamWord {
         this.id = id;
     }
 
-    public EssenceParamWord(int id, String essenceTypeId, String paramName, int order, Boolean isNumeric) {
+    public EssenceParamWord(int id, int essenceTypeId, String paramName, int order, Boolean isNumeric) {
         this.id = id;
         this.essenceTypeId = essenceTypeId;
         this.paramName = paramName;
@@ -55,7 +55,7 @@ public class EssenceParamWord {
         return id;
     }
 
-    public String getEssenceTypeId() {
+    public int getEssenceTypeId() {
         return essenceTypeId;
     }
 
@@ -69,7 +69,7 @@ public class EssenceParamWord {
         this.paramName = paramName;
     }
 
-    public void setEssenceTypeId(String essenceTypeId) {
+    public void setEssenceTypeId(int essenceTypeId) {
         this.essenceTypeId = essenceTypeId;
     }
 

@@ -11,17 +11,17 @@ import com.example.tukyhelper.Model.EssenceRoom.EssenceDao;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceTypeDao;
 import com.example.tukyhelper.Model.ParamRoom.EssenceParam;
-//import com.example.tukyhelper.Model.ParamRoom.EssenceParamDao;
+import com.example.tukyhelper.Model.ParamRoom.EssenceParamDao;
 import com.example.tukyhelper.Model.ParamRoom.EssenceParamWord;
-//import com.example.tukyhelper.Model.ParamRoom.EssenceParamWordDao;
+import com.example.tukyhelper.Model.ParamRoom.EssenceParamWordDao;
 
-@Database(entities = {Essence.class, EssenceType.class}, version = 1)
+@Database(entities = {Essence.class, EssenceType.class, EssenceParam.class, EssenceParamWord.class}, version = 1)
 public abstract class EssenceDatabase extends RoomDatabase {
 
     public abstract EssenceDao essenceDao();
     public abstract EssenceTypeDao essenceTypeDao();
-//    public abstract EssenceParamDao essenceParamDao();
-//    public abstract EssenceParamWordDao essenceParamWordDao();
+    public abstract EssenceParamDao essenceParamDao();
+    public abstract EssenceParamWordDao essenceParamWordDao();
     private static EssenceDatabase instance;
 
     public static synchronized EssenceDatabase getDatabase(Context context) {
