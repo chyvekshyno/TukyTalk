@@ -20,6 +20,7 @@ public class Essence {
 
     //region Parameters
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "ID")
     private int id;
 
     @ColumnInfo(name = "TYPE")
@@ -33,9 +34,6 @@ public class Essence {
 
     @ColumnInfo(name = "NTF", defaultValue = "2")
     private int nftCount;
-
-    @Ignore
-    List<EssenceParamWord> params = new ArrayList<>();
 
     //endregion
 
@@ -52,15 +50,6 @@ public class Essence {
         this.name = name;
         this.icon = icon;
         this.nftCount = nftCount;
-    }
-
-    public Essence(int id, int type, @NonNull String name, @NonNull String icon, int nftCount, List<EssenceParamWord> params) {
-        this.id = id;
-        this.type = type;
-        this.name = name;
-        this.icon = icon;
-        this.nftCount = nftCount;
-        this.params = params;
     }
 
     //endregion
@@ -88,10 +77,6 @@ public class Essence {
         return nftCount;
     }
 
-    public List<EssenceParamWord> getParams() {
-        return params;
-    }
-
     //endregion
 
     //region Setters
@@ -107,9 +92,6 @@ public class Essence {
         this.icon = iconpath;
     }
 
-    public void setParams(@NonNull List<EssenceParamWord> params){
-        this.params = params;
-    }
     //endregion
 
     //endregion

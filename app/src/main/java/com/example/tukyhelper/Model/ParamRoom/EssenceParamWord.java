@@ -21,7 +21,7 @@ public class EssenceParamWord {
     @ColumnInfo(name = "ORDER")
     int order;
 
-    @ColumnInfo(name = "IS_NUMERIC")
+    @ColumnInfo(name = "IS_NUMERIC", defaultValue = "false")
     Boolean isNumeric;
 
 

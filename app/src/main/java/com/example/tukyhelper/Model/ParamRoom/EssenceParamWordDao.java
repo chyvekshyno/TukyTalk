@@ -9,18 +9,18 @@ import androidx.room.Update;
 
 import java.util.List;
 
-@Dao
-public interface EssenceParamWordDao {
-
-    @Query("SELECT * FROM PARAMS_DIC")
-    LiveData<List<EssenceParamWord>> getAll();
-
-    @Update
-    void update(EssenceParamWord paramWord);
-
-    @Insert
-    void insert(EssenceParamWord paramWord);
-
-    @Delete
-    void delete(int id);
-}
+//@Dao
+//public interface EssenceParamWordDao {
+//
+//    @Query("SELECT * FROM PARAMS_DIC")
+//    LiveData<List<EssenceParamWord>> getAll();
+//
+//    @Update
+//    void update(EssenceParamWord paramWord);
+//
+//    @Insert
+//    void insert(EssenceParamWord paramWord);
+//
+//    @Delete
+//    void delete(int id);
+//}
