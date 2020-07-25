@@ -15,6 +15,12 @@ public interface EssenceParamWordDao {
     @Query("SELECT * FROM PARAMS_DIC")
     LiveData<List<EssenceParamWord>> getAll();
 
+    @Query("SELECT * FROM PARAMS_DIC WHERE ESSENCE_TYPE_ID = :typeId")
+    LiveData<List<EssenceParamWord>> getAllByEssenceTypeId(int typeId);
+
+    @Query("SELECT * FROM PARAMS_DIC WHERE ESSENCE_TYPE_ID = :typeId ORDER BY `ORDER`")
+    LiveData<List<EssenceParamWord>> getAllByEssenceTypeIdOrdered(int typeId);
+
     @Update
     void update(EssenceParamWord paramWord);
 

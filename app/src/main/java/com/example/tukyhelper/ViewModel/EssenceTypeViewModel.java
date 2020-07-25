@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.tukyhelper.Model.EssenceRepository;
+import com.example.tukyhelper.Model.Repositories.EssenceRepository;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceTypeDao;
 

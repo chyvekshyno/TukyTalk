@@ -9,12 +9,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.tukyhelper.Model.ParamRoom.EssenceParam;
 import com.example.tukyhelper.R;
 import com.example.tukyhelper.View.Adapters.MessagePagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class EssenceActivity extends AppCompatActivity {
+
+    public final String KEY_ESSENCE_ID = "ESSENCE_ID";
+    public final String KEY_ESSENCE_TYPE_ID = "ESSENCE_TYPE_ID";
 
     ViewPager pager;
     ImageButton ibt_home;
@@ -32,6 +34,8 @@ public class EssenceActivity extends AppCompatActivity {
         setMessagePager();
     }
 
+
+    //region Setup Methods
     void setHomeButton(){
         ibt_home = (ImageButton) findViewById(R.id.ibt_essence_home);
         ibt_home.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +52,11 @@ public class EssenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EssenceActivity.this, EssenceParamsActivity.class);
-                startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putInt(KEY_ESSENCE_ID, getIntent().getIntExtra(KEY_ESSENCE_ID, 1));
+                bundle.putInt(KEY_ESSENCE_TYPE_ID, getIntent().getIntExtra(KEY_ESSENCE_TYPE_ID, 1));
+
+                startActivity(intent, bundle);
             }
         });
     }
@@ -61,4 +69,6 @@ public class EssenceActivity extends AppCompatActivity {
         // setup tabs
         ((TabLayout) findViewById(R.id.tabl_essence_msg)).setupWithViewPager(pager);
     }
+
+    //endregion
 }

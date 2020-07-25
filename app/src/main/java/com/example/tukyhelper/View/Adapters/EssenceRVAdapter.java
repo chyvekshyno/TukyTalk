@@ -19,7 +19,7 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
 
     //region variables
     private List<Essence> data = new ArrayList<>();
-    private View.OnClickListener listener;
+    private OnEssenceClickListener listener;
 
     //endregion
 
@@ -38,7 +38,13 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         //holder.ibt.setImageBitmap(BitmapFactory
         //       .decodeFile(essList.get(position).getIcon()));
 
-        holder.ibt.setOnClickListener(listener);
+        holder.ibt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Essence ess = data.get(position);
+                listener.OnClick(v, ess.getId(), ess.getType());
+            }
+        });
     }
 
     @Override
@@ -54,7 +60,7 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
         notifyDataSetChanged();
     }
 
-    public void setOnEssenceClickListener(View.OnClickListener listener){
+    public void setOnEssenceClickListener(OnEssenceClickListener listener){
         this.listener = listener;
     }
 
@@ -73,6 +79,10 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
             ibt = (ImageButton) itemView.findViewById(R.id.ibt_essenceview_icon);
             ntfCount = (TextView) itemView.findViewById(R.id.tv_essenceview_ntfcount);
         }
+    }
+
+    public interface OnEssenceClickListener{
+        void OnClick(View v, int id, int typeId);
     }
     //endregion
 }

@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     EssenceViewModel essVM;
     final int REQUEST_CODE_CREATE = 1;
 
+    public final String KEY_ESSENCE_ID = "ESSENCE_ID";
+    public final String KEY_ESSENCE_TYPE_ID = "ESSENCE_TYPE_ID";
+
+    //region Override
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,36 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         essVM = ViewModelProviders.of(this).get(EssenceViewModel.class);
 
-        RecyclerView  rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
-        rv_essence_list.setLayoutManager(new GridLayoutManager(this, 3));
-        final EssenceRVAdapter adapter = new EssenceRVAdapter();
-        rv_essence_list.setAdapter(adapter);
-
-        essVM.getAllEssences().observe(this, new Observer<List<Essence>>(){
-            @Override
-            public void onChanged(List<Essence> essences) {
-                adapter.setData(essences);
-            }
-        });
-
-        adapter.setOnEssenceClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EssenceActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // set onClick for fab
-        FloatingActionButton fab_add = (FloatingActionButton) findViewById(R.id.fab_essence_add);
-        fab_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EssenceAddActivity.class);
-                startActivityForResult(intent, REQUEST_CODE_CREATE);
-            }
-        });
-
+        setAddEssenceFAB();
+        setEssenceRV();
     }
 
     @Override
@@ -81,4 +57,37 @@ public class MainActivity extends AppCompatActivity {
             t.start();
         }
     }
+
+    //endregion
+
+    //region Setup Methods
+
+    void setEssenceRV(){
+        RecyclerView  rv_essence_list = (RecyclerView) findViewById(R.id.rv_essence_list);
+        rv_essence_list.setLayoutManager(new GridLayoutManager(this, 3));
+        final EssenceRVAdapter adapter = new EssenceRVAdapter();
+        rv_essence_list.setAdapter(adapter);
+
+        essVM.getAllEssences().observe(this, adapter::setData);
+
+        adapter.setOnEssenceClickListener((View v, int id, int typeId) -> {
+            Intent intent = new Intent(MainActivity.this, EssenceActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt(KEY_ESSENCE_ID, id);
+            bundle.putInt(KEY_ESSENCE_TYPE_ID, typeId);
+            startActivity(intent, bundle);
+        });
+    }
+
+    void setAddEssenceFAB(){
+        FloatingActionButton fab_add = (FloatingActionButton) findViewById(R.id.fab_essence_add);
+        fab_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EssenceAddActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_CREATE);
+            }
+        });
+    }
+    //endregion
 }
