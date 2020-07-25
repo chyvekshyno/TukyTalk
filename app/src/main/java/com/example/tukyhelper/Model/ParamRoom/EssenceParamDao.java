@@ -19,11 +19,11 @@ public interface EssenceParamDao {
     LiveData<List<EssenceParam>> getByEssenceId(int id);
 
     @Update
-    void update();
+    void update(EssenceParam param);
 
     @Insert
-    void insert();
+    void insert(EssenceParam param);
 
     @Delete
-    void delete();
+    void delete(int id);
 }

@@ -16,11 +16,11 @@ public interface EssenceParamWordDao {
     LiveData<List<EssenceParamWord>> getAll();
 
     @Update
-    void update();
+    void update(EssenceParamWord paramWord);
 
     @Insert
-    void insert();
+    void insert(EssenceParamWord paramWord);
 
     @Delete
-    void delete();
+    void delete(int id);
 }
