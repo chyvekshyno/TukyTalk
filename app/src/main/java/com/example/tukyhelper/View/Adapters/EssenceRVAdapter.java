@@ -28,7 +28,7 @@ public class EssenceRVAdapter extends RecyclerView.Adapter<EssenceRVAdapter.Esse
     @Override
     public EssenceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new EssenceHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.essence_itemview, parent, false));
+                .inflate(R.layout.itemview_essence, parent, false));
     }
 
     @Override

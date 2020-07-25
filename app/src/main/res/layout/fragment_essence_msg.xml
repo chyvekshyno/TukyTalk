@@ -20,5 +20,5 @@
         android:id="@+id/rv_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/message_itemview"/>
+        tools:listitem="@layout/itemview_message"/>
 </LinearLayout>

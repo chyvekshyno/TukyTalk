@@ -1,4 +1,4 @@
-package com.example.tukyhelper.Model.EssenceRoom;
+package com.example.tukyhelper.Model.ParamRoom;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

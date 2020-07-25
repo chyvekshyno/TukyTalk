@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.R;
 import com.example.tukyhelper.View.Adapters.MessageRVAdapter;
-import com.example.tukyhelper.ViewModel.MessageViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class MessageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.essence_msg_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_essence_msg, container, false);
         TextView page = (TextView) view.findViewById(R.id.tv_page);
         String tmp = page.getText().toString() + String.valueOf(cpage);
         page.setText(tmp);

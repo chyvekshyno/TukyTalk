@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 
 import com.example.tukyhelper.Model.EssenceRoom.Essence;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceDao;
-import com.example.tukyhelper.Model.EssenceRoom.EssenceDatabase;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
 import com.example.tukyhelper.Model.EssenceRoom.EssenceTypeDao;
 

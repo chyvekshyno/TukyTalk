@@ -1,10 +1,15 @@
-package com.example.tukyhelper.Model.EssenceRoom;
+package com.example.tukyhelper.Model;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.example.tukyhelper.Model.EssenceRoom.Essence;
+import com.example.tukyhelper.Model.EssenceRoom.EssenceDao;
+import com.example.tukyhelper.Model.EssenceRoom.EssenceType;
+import com.example.tukyhelper.Model.EssenceRoom.EssenceTypeDao;
 
 @Database(entities = {Essence.class, EssenceType.class}, version = 1)
 public abstract class EssenceDatabase extends RoomDatabase {

@@ -1,7 +1,6 @@
 package com.example.tukyhelper.View;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -23,7 +22,7 @@ public class EssenceActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.essence_activity);
+        setContentView(R.layout.activity_essence);
 
         setHomeButton();
         setMessagePager();

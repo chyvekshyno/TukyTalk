@@ -52,7 +52,7 @@
                 android:verticalSpacing="16dp"
                 android:numColumns="auto_fit"
                 android:padding="16dp"
-                tools:listitem="@layout/essence_itemview"/>
+                tools:listitem="@layout/itemview_essence"/>
 
         </FrameLayout>
 
