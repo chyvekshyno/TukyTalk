@@ -8,13 +8,19 @@ import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "MESSAGES")
 public class Message {
 
     //region Fields
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "ID")
     int id;
+
+    @ColumnInfo(name = "ESSENCE_ID")
+    int essenceId;
+
+    @ColumnInfo(name = "TYPE")
+    int type;
 
     @ColumnInfo(name = "TITLE")
     String title;
@@ -27,8 +33,10 @@ public class Message {
     //endregion
 
     //region Constructors
-    public Message(int id, String title, String text, String image) {
+    public Message(int id, int type, int essenceId, String title, String text, String image) {
         this.id = id;
+        this.type = type;
+        this.essenceId = essenceId;
         this.title = title;
         this.text = text;
         this.image = image;
@@ -46,6 +54,14 @@ public class Message {
         return id;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public int getEssenceId() {
+        return essenceId;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -60,6 +76,14 @@ public class Message {
     //endregion
 
     //region Setters
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public void setEssenceId(int essenceId) {
+        this.essenceId = essenceId;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
