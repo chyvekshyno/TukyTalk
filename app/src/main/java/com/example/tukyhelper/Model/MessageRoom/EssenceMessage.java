@@ -1,15 +1,18 @@
 package com.example.tukyhelper.Model.MessageRoom;
 
-import android.graphics.Bitmap;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
-import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "MESSAGES")
-public class Message {
+import com.example.tukyhelper.Model.EssenceRoom.Essence;
+
+@Entity(tableName = "MESSAGES"
+        , foreignKeys = @ForeignKey(entity = Essence.class
+            , parentColumns = "ID"
+            , childColumns = "ESSENCE_ID"))
+public class EssenceMessage {
 
     //region Fields
     @PrimaryKey(autoGenerate = true)
@@ -33,7 +36,7 @@ public class Message {
     //endregion
 
     //region Constructors
-    public Message(int id, int type, int essenceId, String title, String text, String image) {
+    public EssenceMessage(int id, int type, int essenceId, String title, String text, String image) {
         this.id = id;
         this.type = type;
         this.essenceId = essenceId;
@@ -43,7 +46,7 @@ public class Message {
     }
 
     @Ignore
-    public Message(int id) {
+    public EssenceMessage(int id) {
         this.id = id;
     }
     //endregion

@@ -20,7 +20,6 @@ public class ParamsRepository {
     private EssenceParamDao essParamDao;
     private EssenceParamWordDao essParamWordDao;
     //endregion
-    //endregion
 
     public ParamsRepository(Application app) {
         EssenceDatabase essenceDb = EssenceDatabase.getDatabase(app);

@@ -19,6 +19,8 @@ import java.util.List;
 
 public class MessageFragment extends Fragment {
 
+    //Fields
+
     public static final String ARG_PAGE = "ARG_PAGE";
     public static final String[] TITLES = {"ADV", "IMPORTANT", "PROP"};
     int cpage;
@@ -27,6 +29,8 @@ public class MessageFragment extends Fragment {
     List<String> messages = new ArrayList<>();  //  will be deleted
 
     MessageRVAdapter msg_adapter;
+
+    //endregion
 
     public static MessageFragment getInstance(int page){
 
@@ -38,6 +42,7 @@ public class MessageFragment extends Fragment {
         return messageFragment;
     }
 
+    //region Override
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +61,11 @@ public class MessageFragment extends Fragment {
         return view;
     }
 
-    private void setMessages(List<String> messages){
-        this.messages = messages;
+    //endregion
+
+    //region Setup Methods
+    void MessageRV(){
+        rv_messages = (RecyclerView) getView().findViewById(R.id.rv_msg);
     }
+    //endregion
 }

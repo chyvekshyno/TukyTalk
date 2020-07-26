@@ -10,28 +10,28 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface MessageDao {
+public interface EssenceMessageDao {
     @Query("SELECT * FROM MESSAGES")
-    LiveData<List<Message>> getAll();
+    LiveData<List<EssenceMessage>> getAll();
 
     @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id")
-    LiveData<List<Message>> getAllForEssence(int id);
+    LiveData<List<EssenceMessage>> getAllForEssence(int id);
 
     @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id AND TYPE = '1'")
-    LiveData<List<Message>> getImportantForEssence(int id);
+    LiveData<List<EssenceMessage>> getImportantForEssence(int id);
 
     @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id AND TYPE = '2'")
-    LiveData<List<Message>> getPropForEssence(int id);
+    LiveData<List<EssenceMessage>> getPropForEssence(int id);
 
     @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id AND TYPE = '3'")
-    LiveData<List<Message>> getAdvForEssence(int id);
+    LiveData<List<EssenceMessage>> getAdvForEssence(int id);
 
     @Insert
-    void insert();
+    void insert(EssenceMessage message);
 
     @Update
-    void update();
+    void update(EssenceMessage message);
 
     @Delete
-    void delete();
+    void delete(EssenceMessage message);
 }
