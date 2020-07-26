@@ -43,18 +43,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK){
-
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Essence essence = new Essence(data.getIntExtra("type", 1));
-                    essence.setName(data.getStringExtra("name"));
-                    essence.setIcon("iconpath");
-                    essence.setNftCount(0);
-                    essVM.insert(essence);
-                }
-            });
-            t.start();
+            Essence essence = new Essence(data.getIntExtra("type", 1));
+            essence.setName(data.getStringExtra("name"));
+            essence.setIcon("iconpath");
+            essence.setNftCount(0);
+            essVM.insert(essence);
         }
     }
 
@@ -72,10 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.setOnEssenceClickListener((View v, int id, int typeId) -> {
             Intent intent = new Intent(MainActivity.this, EssenceActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt(KEY_ESSENCE_ID, id);
-            bundle.putInt(KEY_ESSENCE_TYPE_ID, typeId);
-            startActivity(intent, bundle);
+            intent.putExtra(KEY_ESSENCE_ID, id);
+            intent.putExtra(KEY_ESSENCE_TYPE_ID, typeId);
+            startActivity(intent);
         });
     }
 

@@ -1,6 +1,7 @@
 package com.example.tukyhelper.Model.Repositories;
 
 import android.app.Application;
+import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
@@ -38,21 +39,51 @@ public class EssenceRepository {
 
     //region  Essence API
     public void insert(Essence ess){
-        essDao.insert(ess);
+        new EssenceInsertAsyncTask().execute(ess);
     }
 
     public void delete(Essence ess){
-        essDao.delete(ess);
+        new EssenceDeleteAsyncTask().execute(ess);
     }
 
     public void update(Essence ess){
-        essDao.update(ess);
+        new EssenceUpdateAsyncTask().execute(ess);
     }
 
     public LiveData<List<Essence>> getAllEssences(){
         return essData;
     }
 
+
+    //region AsyncTasks
+    class EssenceInsertAsyncTask extends AsyncTask<Essence, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Essence... essences) {
+            essDao.insert(essences[0]);
+            return null;
+        }
+    }
+
+    class EssenceDeleteAsyncTask extends AsyncTask<Essence, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Essence... essences) {
+            essDao.delete(essences[0]);
+            return null;
+        }
+    }
+
+    class EssenceUpdateAsyncTask extends AsyncTask<Essence, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Essence... essences) {
+            essDao.update(essences[0]);
+            return null;
+        }
+    }
+
+    //endregion
     //endregion
 
     //region  EssenceType API

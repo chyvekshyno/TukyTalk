@@ -15,7 +15,7 @@ public interface EssenceParamDao {
     @Query("SELECT * FROM ESSENCE_PARAMS")
     LiveData<List<EssenceParam>> getAll();
 
-    @Query("SELECT * FROM ESSENCE_PARAMS WHERE ID = :id")
+    @Query("SELECT * FROM ESSENCE_PARAMS WHERE ESSENCE_ID = :id")
     LiveData<List<EssenceParam>> getByEssenceId(int id);
 
     @Update

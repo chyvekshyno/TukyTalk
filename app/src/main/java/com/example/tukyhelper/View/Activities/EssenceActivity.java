@@ -18,6 +18,9 @@ public class EssenceActivity extends AppCompatActivity {
     public final String KEY_ESSENCE_ID = "ESSENCE_ID";
     public final String KEY_ESSENCE_TYPE_ID = "ESSENCE_TYPE_ID";
 
+    int ESSENCE_ID;
+    int ESSENCE_TYPE_ID;
+
     ViewPager pager;
     ImageButton ibt_home;
     ImageButton ibt_ess_icon;
@@ -28,6 +31,9 @@ public class EssenceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_essence);
+
+        ESSENCE_ID = getIntent().getIntExtra(KEY_ESSENCE_ID, 0);
+        ESSENCE_TYPE_ID = getIntent().getIntExtra(KEY_ESSENCE_TYPE_ID, 0);
 
         setHomeButton();
         setEssenceIconButton();
@@ -52,11 +58,9 @@ public class EssenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EssenceActivity.this, EssenceParamsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt(KEY_ESSENCE_ID, getIntent().getIntExtra(KEY_ESSENCE_ID, 1));
-                bundle.putInt(KEY_ESSENCE_TYPE_ID, getIntent().getIntExtra(KEY_ESSENCE_TYPE_ID, 1));
-
-                startActivity(intent, bundle);
+                intent.putExtra(KEY_ESSENCE_ID, ESSENCE_ID);
+                intent.putExtra(KEY_ESSENCE_TYPE_ID, ESSENCE_TYPE_ID);
+                startActivity(intent);
             }
         });
     }

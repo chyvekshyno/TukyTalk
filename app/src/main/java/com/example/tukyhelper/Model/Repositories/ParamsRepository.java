@@ -1,6 +1,7 @@
 package com.example.tukyhelper.Model.Repositories;
 
 import android.app.Application;
+import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
@@ -11,9 +12,11 @@ import com.example.tukyhelper.Model.ParamRoom.EssenceParamWord;
 import com.example.tukyhelper.Model.ParamRoom.EssenceParamWordDao;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ParamsRepository {
-    //region Daos
+
+    //region Dao
     private EssenceParamDao essParamDao;
     private EssenceParamWordDao essParamWordDao;
     //endregion
@@ -30,15 +33,15 @@ public class ParamsRepository {
 
     //region EssenceParam API
     public  void insert(EssenceParam param){
-        essParamDao.insert(param);
+        new ParamInsertAsyncTask().execute(param);
     }
 
     public  void update(EssenceParam param){
-        essParamDao.update(param);
+        new ParamUpdateAsyncTask().execute(param);
     }
 
     public  void delete(EssenceParam param){
-        essParamDao.delete(param);
+        new ParamDeleteAsyncTask().execute(param);
     }
 
     public LiveData<List<EssenceParam>> getAllParams(){
@@ -49,19 +52,53 @@ public class ParamsRepository {
         return essParamDao.getByEssenceId(id);
     }
 
+    public int getCount(){
+        return essParamDao.getCount();
+    }
+
+    //region AsyncTasks
+
+    class ParamInsertAsyncTask extends AsyncTask<EssenceParam, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParam... essenceParams) {
+            essParamDao.insert(essenceParams[0]);
+            return null;
+        }
+    }
+
+    class ParamUpdateAsyncTask extends AsyncTask<EssenceParam, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParam... essenceParams) {
+            essParamDao.update(essenceParams[0]);
+            return null;
+        }
+    }
+
+    class ParamDeleteAsyncTask extends AsyncTask<EssenceParam, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParam... essenceParams) {
+            essParamDao.delete(essenceParams[0]);
+            return null;
+        }
+    }
+
+    //endregion
     //endregion
 
     //region EssenceParamWord API
     public  void insert(EssenceParamWord paramWord){
-        essParamWordDao.insert(paramWord);
+        new ParamWordInsertAsyncTask().execute(paramWord);
     }
 
     public  void update(EssenceParamWord paramWord){
-        essParamWordDao.update(paramWord);
+        new ParamWordUpdateAsyncTask().execute(paramWord);
     }
 
     public  void delete(EssenceParamWord paramWord){
-        essParamWordDao.delete(paramWord);
+        new ParamWordDeleteAsyncTask().execute(paramWord);;
     }
 
     public LiveData<List<EssenceParamWord>> getAllParamDic(){
@@ -76,7 +113,36 @@ public class ParamsRepository {
         return essParamWordDao.getAllByEssenceTypeIdOrdered(typeId);
     }
 
-    //endregion
 
+    //region AsyncTasks
+
+    class ParamWordInsertAsyncTask extends AsyncTask<EssenceParamWord, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParamWord... essenceParamWords) {
+            essParamWordDao.insert(essenceParamWords[0]);
+            return null;
+        }
+    }
+
+    class ParamWordUpdateAsyncTask extends AsyncTask<EssenceParamWord, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParamWord... essenceParamWords) {
+            essParamWordDao.update(essenceParamWords[0]);
+            return null;
+        }
+    }
+
+    class ParamWordDeleteAsyncTask extends AsyncTask<EssenceParamWord, Void, Void>{
+
+        @Override
+        protected Void doInBackground(EssenceParamWord... essenceParamWords) {
+            essParamWordDao.delete(essenceParamWords[0]);
+            return null;
+        }
+    }
+    //endregion
+    //endregion
     //endregion
 }

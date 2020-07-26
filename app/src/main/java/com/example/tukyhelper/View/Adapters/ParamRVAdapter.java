@@ -23,6 +23,11 @@ public class ParamRVAdapter extends RecyclerView.Adapter<ParamRVAdapter.ParamHol
     List<EssenceParam> params = new ArrayList<>();          //  ordered by param_id
     List<EssenceParamWord> paramDic = new ArrayList<>();    //  ordered by order
 
+//    public ParamRVAdapter(List<EssenceParam> params, List<EssenceParamWord> paramDic) {
+//        this.params = params;
+//        this.paramDic = paramDic;
+//    }
+
     //region Override
     @NonNull
     @Override
@@ -33,9 +38,6 @@ public class ParamRVAdapter extends RecyclerView.Adapter<ParamRVAdapter.ParamHol
 
     @Override
     public void onBindViewHolder(@NonNull ParamHolder holder, int position) {
-        Log.d("PARAM BINDING NAME", paramDic.get(position).getParamName());
-        Log.d("PARAM BINDING VALUE", getParamByParamId(paramDic.get(position).getId()).getValue());
-
         holder.tv_parameter.setText(paramDic.get(position).getParamName());
         holder.tv_value.setText(getParamByParamId(paramDic.get(position).getId()).getValue());
     }
