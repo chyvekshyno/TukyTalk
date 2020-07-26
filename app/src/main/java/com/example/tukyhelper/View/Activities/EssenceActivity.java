@@ -67,7 +67,7 @@ public class EssenceActivity extends AppCompatActivity {
     }
 
     void setMessagePager(){
-        pager = (NonSwipeViewPager) findViewById(R.id.pager_essence_msg);
+        pager = findViewById(R.id.pager_essence_msg);
         msg_pager_adapter = new MessagePagerAdapter(getSupportFragmentManager());
         pager.setAdapter(msg_pager_adapter);
 

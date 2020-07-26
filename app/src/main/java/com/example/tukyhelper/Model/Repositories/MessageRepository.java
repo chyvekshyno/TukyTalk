@@ -25,35 +25,35 @@ public class MessageRepository {
 
     //region API
 
-    LiveData<List<EssenceMessage>> getAll(){
+    public LiveData<List<EssenceMessage>> getAll(){
         return msgDao.getAll();
     }
 
-    LiveData<List<EssenceMessage>> getAllForEssence(int id){
+    public LiveData<List<EssenceMessage>> getAllForEssence(int id){
         return msgDao.getAllForEssence(id);
     }
 
-    LiveData<List<EssenceMessage>> getImportantForEssence(int id){
+    public LiveData<List<EssenceMessage>> getImportantForEssence(int id){
         return msgDao.getImportantForEssence(id);
     }
 
-    LiveData<List<EssenceMessage>> getPropForEssence(int id){
+    public LiveData<List<EssenceMessage>> getPropForEssence(int id){
         return msgDao.getPropForEssence(id);
     }
 
-    LiveData<List<EssenceMessage>> getAdvForEssence(int id){
+    public LiveData<List<EssenceMessage>> getAdvForEssence(int id){
         return msgDao.getAdvForEssence(id);
     }
 
-    void insert(EssenceMessage message){
+    public void insert(EssenceMessage message){
         new MessageInsertAsyncTask().execute(message);
     }
 
-    void update(EssenceMessage message){
+    public void update(EssenceMessage message){
         new MessageUpdateAsyncTask().execute(message);
     }
 
-    void delete(EssenceMessage message){
+    public void delete(EssenceMessage message){
         new MessageDeleteAsyncTask().execute(message);
     }
 

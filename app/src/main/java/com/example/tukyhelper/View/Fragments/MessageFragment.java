@@ -9,10 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.R;
 import com.example.tukyhelper.View.Adapters.MessageRVAdapter;
+import com.example.tukyhelper.ViewModel.MessageViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +28,8 @@ public class MessageFragment extends Fragment {
     int cpage;
 
     RecyclerView rv_messages;
-    List<String> messages = new ArrayList<>();  //  will be deleted
 
-    MessageRVAdapter msg_adapter;
+    MessageViewModel msgVM;
 
     //endregion
 
@@ -58,14 +59,21 @@ public class MessageFragment extends Fragment {
         TextView page = (TextView) view.findViewById(R.id.tv_page);
         String tmp = page.getText().toString() + String.valueOf(cpage);
         page.setText(tmp);
+
+        msgVM = ViewModelProviders.of(this).get(MessageViewModel.class);
+        setMessageRV();
+
         return view;
     }
 
     //endregion
 
     //region Setup Methods
-    void MessageRV(){
+    void setMessageRV(){
         rv_messages = (RecyclerView) getView().findViewById(R.id.rv_msg);
+
+        MessageRVAdapter adapter = new MessageRVAdapter();
+        msgVM.getAll().observe(this, adapter::setData);
     }
     //endregion
 }

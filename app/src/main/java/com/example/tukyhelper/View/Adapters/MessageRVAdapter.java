@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tukyhelper.Model.MessageRoom.EssenceMessage;
 import com.example.tukyhelper.R;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.MessageHolder> {
 
-    List<String> messages = new ArrayList<>();
+    List<EssenceMessage> messages = new ArrayList<>();
 
     @NonNull
     @Override
@@ -26,7 +27,8 @@ public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.Mess
 
     @Override
     public void onBindViewHolder(@NonNull MessageHolder holder, int position) {
-        holder.tv_text.setText(messages.get(position));
+        holder.tv_title.setText(messages.get(position).getTitle());
+        holder.tv_text.setText(messages.get(position).getText());
     }
 
     @Override
@@ -34,17 +36,20 @@ public class MessageRVAdapter extends RecyclerView.Adapter<MessageRVAdapter.Mess
         return messages.size();
     }
 
-    public void setData(List<String> messages){
+    public void setData(List<EssenceMessage> messages){
         this.messages = messages;
+        notifyDataSetChanged();
     }
 
     static class MessageHolder extends RecyclerView.ViewHolder{
 
+        TextView tv_title;
         TextView tv_text;
 
         public MessageHolder(@NonNull View itemView) {
             super(itemView);
-            tv_text = (TextView) itemView.findViewById(R.id.tv_msg_text);
+            tv_title = itemView.findViewById(R.id.tv_msg_title);
+            tv_text = itemView.findViewById(R.id.tv_msg_text);
         }
     }
 }
