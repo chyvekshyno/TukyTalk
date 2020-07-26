@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:layout_margin="8dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,8 +17,8 @@
             android:foregroundGravity="bottom">
 
             <ImageButton android:id="@+id/ibt_essenceview_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@drawable/bt_circle_essence"
                 android:src="@drawable/ic_launcher_foreground"/>
@@ -39,7 +40,7 @@
                 android:background="@drawable/essence_ntf_circle"
                 android:gravity="center"
                 android:padding="8dp"
-                android:textSize="12sp" />
+                android:textSize="8sp" />
         </FrameLayout>
     </RelativeLayout>
 
