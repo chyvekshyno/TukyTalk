@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.tukyhelper.R;
 import com.example.tukyhelper.View.Adapters.MessagePagerAdapter;
+import com.example.tukyhelper.View.CustomViews.NonSwipeViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 public class EssenceActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class EssenceActivity extends AppCompatActivity {
     int ESSENCE_ID;
     int ESSENCE_TYPE_ID;
 
-    ViewPager pager;
+    NonSwipeViewPager pager;
     ImageButton ibt_home;
     ImageButton ibt_ess_icon;
     MessagePagerAdapter msg_pager_adapter;
@@ -66,7 +67,7 @@ public class EssenceActivity extends AppCompatActivity {
     }
 
     void setMessagePager(){
-        pager = (ViewPager) findViewById(R.id.pager_essence_msg);
+        pager = (NonSwipeViewPager) findViewById(R.id.pager_essence_msg);
         msg_pager_adapter = new MessagePagerAdapter(getSupportFragmentManager());
         pager.setAdapter(msg_pager_adapter);
 

@@ -165,7 +165,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@id/fl_essence_msg_tabs">
-                <androidx.viewpager.widget.ViewPager
+                <com.example.tukyhelper.View.CustomViews.NonSwipeViewPager
                     android:id="@+id/pager_essence_msg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
