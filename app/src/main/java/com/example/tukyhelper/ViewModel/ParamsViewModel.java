@@ -43,9 +43,5 @@ public class ParamsViewModel extends AndroidViewModel {
     public LiveData<List<EssenceParamWord>> getParamDicForEssenceTypeOrdered(int typeId){
         return repos.getParamDicForEssenceTypeOrdered(typeId);
     }
-
-    public int getParamCount(){
-        return repos.getCount();
-    }
     //endregion
 }

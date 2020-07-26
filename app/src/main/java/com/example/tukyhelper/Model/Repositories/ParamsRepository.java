@@ -52,10 +52,6 @@ public class ParamsRepository {
         return essParamDao.getByEssenceId(id);
     }
 
-    public int getCount(){
-        return essParamDao.getCount();
-    }
-
     //region AsyncTasks
 
     class ParamInsertAsyncTask extends AsyncTask<EssenceParam, Void, Void>{

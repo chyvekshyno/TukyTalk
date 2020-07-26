@@ -23,11 +23,6 @@ public class ParamRVAdapter extends RecyclerView.Adapter<ParamRVAdapter.ParamHol
     List<EssenceParam> params = new ArrayList<>();          //  ordered by param_id
     List<EssenceParamWord> paramDic = new ArrayList<>();    //  ordered by order
 
-//    public ParamRVAdapter(List<EssenceParam> params, List<EssenceParamWord> paramDic) {
-//        this.params = params;
-//        this.paramDic = paramDic;
-//    }
-
     //region Override
     @NonNull
     @Override

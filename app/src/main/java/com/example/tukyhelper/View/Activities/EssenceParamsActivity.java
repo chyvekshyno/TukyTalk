@@ -12,6 +12,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.Model.ParamRoom.EssenceParam;
@@ -64,7 +65,7 @@ public class EssenceParamsActivity extends AppCompatActivity {
 
     void setParamsRV() {
         rv_params = (RecyclerView) findViewById(R.id.rv_params);
-        rv_params.setLayoutManager(new GridLayoutManager(this, 2));
+        rv_params.setLayoutManager(new LinearLayoutManager(this));
 
         ParamRVAdapter adapter = new ParamRVAdapter();
         rv_params.setAdapter(adapter);
