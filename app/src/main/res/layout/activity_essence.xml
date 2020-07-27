@@ -168,8 +168,7 @@
                 <com.example.tukyhelper.View.CustomViews.NonSwipeViewPager
                     android:id="@+id/pager_essence_msg"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#32FFEB3B"/>
+                    android:layout_height="match_parent"/>
             </FrameLayout>
 
             <FrameLayout android:id="@+id/fl_essence_msg_tabs"

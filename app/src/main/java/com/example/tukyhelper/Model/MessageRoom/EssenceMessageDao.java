@@ -26,6 +26,9 @@ public interface EssenceMessageDao {
     @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id AND TYPE = '3'")
     LiveData<List<EssenceMessage>> getAdvForEssence(int id);
 
+    @Query("SELECT * FROM MESSAGES WHERE ESSENCE_ID = :id AND TYPE = :msgType")
+    LiveData<List<EssenceMessage>> getMsgByTypeForEssence(int id, int msgType);
+
     @Insert
     void insert(EssenceMessage message);
 

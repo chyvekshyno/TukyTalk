@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tukyhelper.R;
@@ -23,9 +24,12 @@ public class MessageFragment extends Fragment {
 
     //Fields
 
-    public static final String ARG_PAGE = "ARG_PAGE";
+    public static final String KEY_ARG_PAGE = "ARG_PAGE";
+    public static final String KEY_ESSENCE_ID = "ESSENCE_ID";
     public static final String[] TITLES = {"ADV", "IMPORTANT", "PROP"};
+
     int cpage;
+    int id;
 
     RecyclerView rv_messages;
 
@@ -33,10 +37,11 @@ public class MessageFragment extends Fragment {
 
     //endregion
 
-    public static MessageFragment getInstance(int page){
-
+    public static MessageFragment getInstance(int page, int essenceId){
         Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
+
+        args.putInt(KEY_ARG_PAGE, page);
+        args.putInt(KEY_ESSENCE_ID, essenceId);
 
         MessageFragment messageFragment = new MessageFragment();
         messageFragment.setArguments(args);
@@ -48,32 +53,38 @@ public class MessageFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            cpage = getArguments().getInt(ARG_PAGE);
+            cpage = getArguments().getInt(KEY_ARG_PAGE);
+            id = getArguments().getInt(KEY_ESSENCE_ID);
         }
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_essence_msg, container, false);
-        TextView page = (TextView) view.findViewById(R.id.tv_page);
-        String tmp = page.getText().toString() + String.valueOf(cpage);
-        page.setText(tmp);
+        return inflater.inflate(R.layout.fragment_essence_msg, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         msgVM = ViewModelProviders.of(this).get(MessageViewModel.class);
-        setMessageRV();
-
-        return view;
+        setMessageRV(view);
     }
 
     //endregion
 
     //region Setup Methods
-    void setMessageRV(){
-        rv_messages = (RecyclerView) getView().findViewById(R.id.rv_msg);
+    void setMessageRV(@NonNull View view){
+        rv_messages = view.findViewById(R.id.rv_msg);
+        rv_messages.setLayoutManager(new LinearLayoutManager(getContext()));
 
         MessageRVAdapter adapter = new MessageRVAdapter();
-        msgVM.getAll().observe(this, adapter::setData);
+        rv_messages.setAdapter(adapter);
+
+        int msgType = cpage + 1;
+        msgVM.getMsgByTypeForEssence(id, msgType).observe(this, adapter::setData);
+
     }
     //endregion
 }

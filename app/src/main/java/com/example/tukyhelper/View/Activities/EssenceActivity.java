@@ -68,7 +68,7 @@ public class EssenceActivity extends AppCompatActivity {
 
     void setMessagePager(){
         pager = findViewById(R.id.pager_essence_msg);
-        msg_pager_adapter = new MessagePagerAdapter(getSupportFragmentManager());
+        msg_pager_adapter = new MessagePagerAdapter(getSupportFragmentManager(), ESSENCE_ID);
         pager.setAdapter(msg_pager_adapter);
 
         // setup tabs

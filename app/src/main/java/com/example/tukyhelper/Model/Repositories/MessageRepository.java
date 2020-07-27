@@ -45,6 +45,10 @@ public class MessageRepository {
         return msgDao.getAdvForEssence(id);
     }
 
+    public LiveData<List<EssenceMessage>> getMsgByTypeForEssence(int id, int msgType){
+        return msgDao.getMsgByTypeForEssence(id, msgType);
+    }
+
     public void insert(EssenceMessage message){
         new MessageInsertAsyncTask().execute(message);
     }

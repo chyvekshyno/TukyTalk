@@ -43,6 +43,10 @@ public class MessageViewModel extends AndroidViewModel {
         return repos.getAdvForEssence(id);
     }
 
+    public LiveData<List<EssenceMessage>> getMsgByTypeForEssence(int id, int msgType){
+        return repos.getMsgByTypeForEssence(id, msgType);
+    }
+
     public void insert(EssenceMessage message){
         repos.insert(message);
     }
